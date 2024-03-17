@@ -2,7 +2,7 @@ const express = require('express');
 const OpenAI = require('openai');
 const app = express();
 
-const openai = new OpenAI({ apiKey: "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" });
+const openai = new OpenAI({ apiKey: "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" });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #222121;
         }
         .container {
             text-align: center;
@@ -23,36 +23,44 @@
         }
         input[type="text"] {
             padding: 10px;
-            width: 300px;
+            width: 700px;
         }
         input[type="submit"] {
+            margin-top: 5px;
             padding: 10px 20px;
             background-color: #007bff;
             border: none;
             color: #fff;
             cursor: pointer;
         }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
         .output {
             margin-top: 20px;
             padding: 20px;
             border: 1px solid #ddd;
             text-align: left;
-            min-height: 200px;
-            max-height: 300px;
+            min-height: 500px;
+            max-height: 600px;
             overflow-y: auto;
+        }
+        h1 {
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>MyChat</h1>
+        <div class="output" id="chatOutput"></div>
         <div class="input-container">
             <form id="chatForm">
                 <input type="text" id="userInput" placeholder="Type your message...">
                 <input type="submit" value="Send">
             </form>
         </div>
-        <div class="output" id="chatOutput"></div>
+        
     </div>
 
     <script>
@@ -78,15 +86,20 @@
             outputUserDiv.textContent = `User: ${input}`;
             outputUserDiv.style.marginBottom = '10px';
             outputUserDiv.style.fontWeight = 'bold';
-            outputUserDiv.style.backgroundColor = 'green';
+            outputUserDiv.style.backgroundColor = '#28a745';
             outputUserDiv.style.color = 'white';
+            outputUserDiv.style.padding= '15px';
+            outputUserDiv.style.borderRadius = '10px';
             chatOutput.appendChild(outputUserDiv);
 
             const outputBotDiv = document.createElement('div');
-            outputBotDiv.textContent = `Bot: ${responseData.response}`;
+            outputBotDiv.textContent = `Assistant: ${responseData.response}`;
             outputBotDiv.style.marginBottom = '10px';
-            outputBotDiv.style.backgroundColor = 'blue';
+            outputBotDiv.style.fontWeight = 'bold';
+            outputBotDiv.style.backgroundColor = '#007bff';
             outputBotDiv.style.color = 'white';
+            outputBotDiv.style.padding= '15px';
+            outputBotDiv.style.borderRadius = '10px';
             chatOutput.appendChild(outputBotDiv);
 
             userInput.value = '';
